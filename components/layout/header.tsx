@@ -5,6 +5,7 @@ import { Wallet, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import Image from "next/image"
 
 export function Header() {
   const [isConnected, setIsConnected] = useState(true)
@@ -14,6 +15,8 @@ export function Header() {
     { name: "Dashboard", href: "/" },
     { name: "Supply", href: "/supply" },
     { name: "Borrow", href: "/borrow" },
+    { name: "Buy Crypto", href: "/buy-crypto" },
+    { name: "Earn Fiat", href: "/earn-fiat" },
     { name: "Markets", href: "/markets" },
   ]
 
@@ -27,8 +30,8 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-yellow-500 rounded-lg flex items-center justify-center">
-              <div className="w-4 h-4 bg-[#060606] rounded-sm transform rotate-45"></div>
+            <div className="w-10 h-10 relative">
+              <Image src="/pesabits-logo.png" alt="PESABITS" fill className="object-contain" />
             </div>
             <span className="text-2xl font-bold text-white">PESABITS</span>
           </Link>
