@@ -5,7 +5,7 @@ import { Header } from "@/components/layout/header"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
-import { CreditCard, Banknote, TrendingUp, Shield, Clock } from "lucide-react"
+import { CreditCard, Banknote, TrendingUp, Shield, Clock, Smartphone } from "lucide-react"
 import { BuyCryptoModal } from "@/components/ui/buy-crypto-modal"
 
 const cryptoAssets = [
@@ -116,6 +116,14 @@ const paymentMethods = [
     fee: "1.0%",
     time: "1-3 days",
     limits: "$100 - $50,000",
+  },
+  {
+    id: "mpesa",
+    name: "M-Pesa",
+    icon: Smartphone,
+    fee: "2.0%",
+    time: "Instant",
+    limits: "$10 - $5,000",
   },
 ]
 
@@ -351,7 +359,11 @@ export default function BuyCryptoPage() {
       </div>
 
       {showModal && selectedAsset && (
-        <BuyCryptoModal asset={selectedAsset} paymentMethod={paymentMethod} onClose={() => setShowModal(false)} />
+        <BuyCryptoModal
+          asset={selectedAsset}
+          paymentMethod={paymentMethod}
+          onClose={() => setShowModal(false)}
+        />
       )}
     </div>
   )
