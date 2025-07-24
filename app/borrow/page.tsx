@@ -40,6 +40,14 @@ export default function BorrowPage() {
       canBorrow: true,
       color: "#627EEA",
     },
+    {
+      symbol: "USD",
+      name: "USD Dollers",
+      balance: "Available: $5,000",
+      apy: "2.95%",
+      canBorrow: true,
+      color: "#627EEA",
+    },
   ]
 
   const borrowedAssets = [

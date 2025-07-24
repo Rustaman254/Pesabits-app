@@ -104,6 +104,27 @@ export default function MarketsPage() {
           <p className="text-gray-400">Overview of all available lending and borrowing markets</p>
         </div>
 
+        {/* Market Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 mt-8">
+          <div className="bg-[#101010] rounded-xl p-6 card-shadow">
+            <h3 className="text-lg font-semibold text-white mb-2">Total Market Size</h3>
+            <div className="text-3xl font-bold text-yellow-500">$474.4M</div>
+            <div className="text-sm text-gray-400 mt-1">Across all markets</div>
+          </div>
+
+          <div className="bg-[#101010] rounded-xl p-6 card-shadow">
+            <h3 className="text-lg font-semibold text-white mb-2">Total Borrowed</h3>
+            <div className="text-3xl font-bold text-yellow-500">$321.6M</div>
+            <div className="text-sm text-gray-400 mt-1">67.8% utilization</div>
+          </div>
+
+          <div className="bg-[#101010] rounded-xl p-6 card-shadow">
+            <h3 className="text-lg font-semibold text-white mb-2">Active Users</h3>
+            <div className="text-3xl font-bold text-yellow-500">12,847</div>
+            <div className="text-sm text-gray-400 mt-1">+5.2% this week</div>
+          </div>
+        </div>
+
         {/* Markets Table */}
         <div className="bg-[#101010] rounded-xl card-shadow overflow-hidden">
           <div className="p-6">
@@ -190,7 +211,7 @@ export default function MarketsPage() {
         </div>
 
         {/* Market Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           <div className="bg-[#101010] rounded-xl p-6 card-shadow">
             <h3 className="text-lg font-semibold text-white mb-2">Total Market Size</h3>
             <div className="text-3xl font-bold text-yellow-500">$474.4M</div>
@@ -208,7 +229,7 @@ export default function MarketsPage() {
             <div className="text-3xl font-bold text-yellow-500">12,847</div>
             <div className="text-sm text-gray-400 mt-1">+5.2% this week</div>
           </div>
-        </div>
+        </div> */}
       </main>
 
       {selectedAsset && (

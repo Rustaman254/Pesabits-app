@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { SetStateAction, useState } from "react"
 import { Header } from "@/components/layout/header"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -101,6 +101,15 @@ const gasTokens = [
 ]
 
 const paymentMethods = [
+    {
+    id: "mpesa",
+    name: "M-Pesa",
+    icon: Smartphone,
+    fee: "2.0%",
+    time: "Instant",
+    limits: "$10 - $5,000",
+    isComingSoon: false
+  },
   {
     id: "card",
     name: "Credit/Debit Card",
@@ -108,6 +117,7 @@ const paymentMethods = [
     fee: "3.5%",
     time: "Instant",
     limits: "$50 - $10,000",
+    isComingSoon: true
   },
   {
     id: "bank",
@@ -116,14 +126,7 @@ const paymentMethods = [
     fee: "1.0%",
     time: "1-3 days",
     limits: "$100 - $50,000",
-  },
-  {
-    id: "mpesa",
-    name: "M-Pesa",
-    icon: Smartphone,
-    fee: "2.0%",
-    time: "Instant",
-    limits: "$10 - $5,000",
+    isComingSoon: true
   },
 ]
 
@@ -134,7 +137,7 @@ export default function BuyCryptoPage() {
   const [showModal, setShowModal] = useState(false)
   const [activeTab, setActiveTab] = useState("crypto")
 
-  const handleBuy = (asset) => {
+  const handleBuy = (asset: SetStateAction<null>) => {
     setSelectedAsset(asset)
     setShowModal(true)
   }
@@ -307,7 +310,7 @@ export default function BuyCryptoPage() {
                           <p className="font-medium text-white">{method.name}</p>
                           <div className="flex justify-between text-sm text-gray-400 mt-1">
                             <span>Fee: {method.fee}</span>
-                            <span>{method.time}</span>
+                            {method.isComingSoon ?  <><span>{method.time}</span> <span className="bg-yellow-500 text-black text-xs font-semibold px-2 py-1 rounded-full">Coming Soon</span> </> : <span>{method.time}</span> }
                           </div>
                           <p className="text-xs text-gray-500 mt-1">{method.limits}</p>
                         </div>

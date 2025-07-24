@@ -5,6 +5,9 @@ import { StatCard } from "@/components/ui/stat-card"
 import { AssetTable } from "@/components/ui/asset-table"
 import { DollarSign, Percent, TrendingUp } from "lucide-react"
 
+import { useAccount, useBalance } from "wagmi";
+import { formatUnits } from "viem";
+
 export default function SupplyPage() {
   const availableAssets = [
     {
@@ -68,9 +71,15 @@ export default function SupplyPage() {
     },
   ]
 
+  const { address } = useAccount()
+
+  const { data, isLoading, error } = useBalance({ address })
+
+  console.log("Balance data:", data)
   return (
     <div className="min-h-screen bg-[#060606]">
       <Header />
+
 
       <main className="container-custom main-content py-8">
         <div className="mb-8">
